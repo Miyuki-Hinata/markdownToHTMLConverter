@@ -10,10 +10,16 @@ def markdown_content(input_file, output_file):
     outfile.write(html)
 
 if __name__ == "__main__":
+  if len(sys.argv) != 4:
+        print("Usage: python3 file_converter.py markdown <input_file> <output_file>")
+        sys.exit(1)
+
   _, command, input_file, output_file = sys.argv
 
   if command == "markdown":
     markdown_content(input_file, output_file)
 
   else:
-    print("Usage: python3 file_converter.py <input_file> <output_tile>")
+    print("Unknown command:", command)
+    print("Usage: python3 file_converter.py markdown <input_file> <output_file>")
+    sys.exit(1)
